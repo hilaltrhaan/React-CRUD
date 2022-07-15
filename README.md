@@ -26,3 +26,6 @@ Start the json-server
 
 
 
+![1](https://user-images.githubusercontent.com/88663001/179323545-f26defee-c75f-4b5e-b17e-9932643e9f91.PNG)
+![Uploading 2.PNG…]()
+![Uploading 3.PNG…]()
