@@ -1,0 +1,35 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "tom@email.com",
+      "password": "secret",
+      "username": "tom",
+      "posts": [
+        4444
+      ]
+    },
+    {
+      "email": "hilalturhan515@gmail.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "email": "hüs@email.com",
+      "password": "121212",
+      "id": 4
+    }
+  ],
+  "posts": [
+    {
+      "id": 4444,
+      "title": "Hello JSON Server",
+      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+    },
+    {
+      "id": 4445,
+      "title": "Hello React",
+      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+    }
+  ]
+}
