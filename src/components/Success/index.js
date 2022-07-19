@@ -31,7 +31,7 @@ export default function Success(){
   },[])
 
   const getAllUser = () =>{
-    axios.get("http://localhost:3000/users").then((response)=>{
+    axios.get(`${process.env.REACT_APP_API_URL}/users`).then((response)=>{
       var temp = response.data.map((user)=>{
         return createData(user.id,user.email,user.username)
       })
@@ -43,7 +43,7 @@ export default function Success(){
   }
 
   const deleteUser =(id)=>{
-    axios.delete(`http://localhost:3000/users/${id}`).then((response)=>{
+    axios.delete(`${ process.env.REACT_APP_API_URL }/users/${id}`).then((response)=>{
       console.log("Kullanıcı Silindi!")
       getAllUser();
     }).catch((err)=>{
