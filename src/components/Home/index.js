@@ -1,41 +1,50 @@
-import {React,useState} from 'react';
-import {Link,useNavigate}  from 'react-router-dom';
+import { React, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 
 import axios from 'axios';
 
-function Home(){
-  const [email,setEmail] = useState("")
-  const [pass,setPass] =useState("")
+function Home() {
+  const [email, setEmail] = useState("")
+  const [pass, setPass] = useState("")
   const navigate = useNavigate();
- 
+  const MySwal = withReactContent(Swal)
 
 
-  const handleLogin = () =>{
-    axios.get(`${process.env.REACT_APP_API_URL}/users`).then((response)=>{
-      response.data.forEach((user)=>{
-        if(user.email === email && user.password ===pass){
-         navigate("/success")
+
+  const handleLogin = () => {
+    axios.get(`${process.env.REACT_APP_API_URL}/users`).then((response) => {
+      response.data.forEach((user) => {
+        if (user.email === email && user.password === pass) {
+    
+
+          MySwal.fire({
+            title: <strong>Successful Login</strong>,
+            icon: 'success'
+          })
+          navigate("/success")
         }
       });
 
-    }).catch((err)=>{
+    }).catch((err) => {
       console.log(err)
     })
   }
 
-  const handleUsername = (event) =>{
+  const handleUsername = (event) => {
     setEmail(event.target.value);
   }
 
-  const handlePass = (event)=>{
+  const handlePass = (event) => {
     setPass(event.target.value);
   }
 
 
   return (
     <>
-    
+
       <form className='container'>
         <h3>Login</h3>
         <label>Email</label>
@@ -55,4 +64,4 @@ function Home(){
 
 }
 
-export default Home ;
+export default Home;

@@ -1,4 +1,3 @@
-
 import { React, useEffect, useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -22,36 +21,36 @@ function createData(
   };
 }
 
-export default function Success(){
-  const [loading,setLoading]=useState(true);
-  const [users,setUsers] = useState([]);
+export default function Success() {
+  const [loading, setLoading] = useState(true);
+  const [users, setUsers] = useState([]);
 
-  useEffect(()=>{
-   getAllUser();
-  },[])
+  useEffect(() => {
+    getAllUser();
+  }, [])
 
-  const getAllUser = () =>{
-    axios.get(`${process.env.REACT_APP_API_URL}/users`).then((response)=>{
-      var temp = response.data.map((user)=>{
-        return createData(user.id,user.email,user.username)
+  const getAllUser = () => {
+    axios.get(`${process.env.REACT_APP_API_URL}/users`).then((response) => {
+      var temp = response.data.map((user) => {
+        return createData(user.id, user.email, user.username)
       })
       setUsers(temp);
       setLoading(false)
-    }).catch((err)=>{
+    }).catch((err) => {
       console.log(err)
     })
   }
 
-  const deleteUser =(id)=>{
-    axios.delete(`${ process.env.REACT_APP_API_URL }/users/${id}`).then((response)=>{
+  const deleteUser = (id) => {
+    axios.delete(`${process.env.REACT_APP_API_URL}/users/${id}`).then((response) => {
       console.log("Kullanıcı Silindi!")
       getAllUser();
-    }).catch((err)=>{
+    }).catch((err) => {
       console.log(err);
     })
   }
-  return(
-    loading ? <Oval color="#006666" height={80} width={80} />:
+  return (
+    loading ? <Oval color="#006666" height={80} width={80} /> :
 
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">

@@ -3,7 +3,10 @@ import axios from 'axios';
 import validationSchema from '../validations'
 import React from 'react'
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 function Signup() {
+  const MySwal = withReactContent(Swal)
   const {handleSubmit,handleChange,handleBlur,values,errors,touched} = useFormik({
     initialValues:{
       email :'',
@@ -18,7 +21,11 @@ function Signup() {
         "email" : values.email,
         "password" : values.password
       }).then((response)=>{
-        console.log(`${response.data.email} email adresi için kayıt oluşturuldu`)
+        console.log(`${response.data.email}`)
+        MySwal.fire({
+          title: <strong>Registration created for email</strong>,
+          icon: 'success'
+        })
       }).catch((err)=>{
         console.log(err);
 
